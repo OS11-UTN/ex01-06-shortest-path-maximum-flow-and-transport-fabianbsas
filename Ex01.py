@@ -44,6 +44,7 @@ print("\n\n## Optimazer inputs ## \n\n"
 result = linprog(cost_vector, A_eq = Aeq, b_eq=beq, bounds=bounds)
 
 # Resuts 
+print("\n\n## Results ## \n\n")
 
 raw_active_archs = result.x 
 active_archs = [ int(value) for index, value in enumerate(raw_active_archs) ]

@@ -33,7 +33,8 @@ def get_active_archs(arc_idxs, selected):
             
     return active_archs
 
-# Test 
+# Test
+""" 
 matrix_NN = [[0,1,1],
              [0,0,0],
              [0,0,0]]
@@ -47,3 +48,4 @@ print("Archs \n", arc_idxs)
 selected = [1,0]
 active_archs = get_active_archs(arc_idxs, selected)
 print("Selected archs \n", active_archs)
+"""

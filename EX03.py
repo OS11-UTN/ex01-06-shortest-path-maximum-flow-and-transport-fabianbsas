@@ -68,6 +68,8 @@ for node in range(cnn_nodes):
 
 
 # Resuts 
+print("\n\n## Results ## \n\n")
+
 path = build_path(precedents, gragh) 
 print("the shorther path is {}".format(path))
 
