@@ -5,9 +5,15 @@
 """
 import numpy
 import sys
-from Ex00 import transform_NN_to_NA, get_active_archs
+from Ex00 import transform_NN_to_NA
 from scipy.optimize import linprog
 
+def get_descriptive_name(arc_idx, node_names):
+    source, destination = arc_idx
+    return (node_names[source], node_names[destination])
+    
+
+node_names = ["Factory 1", "Factory 2", "Factory 3", "Warehouse a", "Warehouse b"]
 
 matrix = [[0, 0, 0, 1, 1],
            [0, 0, 0, 1, 1],
@@ -49,6 +55,7 @@ quantity_carried_per_archs = [ int(value) for index, value in enumerate(raw_quan
 
 
 for i in range(len(arc_idxs)):    
-    print("\tThe quantity carried for {} arch is: {}".format(arc_idxs[i], quantity_carried_per_archs[i]))
+    source, destination = get_descriptive_name(arc_idxs[i], node_names)
+    print("\tThe quantity carried from {} to {} is: {}".format(source, destination, quantity_carried_per_archs[i]))
 
 print("\n\tThe cost is {:.2f} \n".format(result.fun))

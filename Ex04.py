@@ -6,7 +6,7 @@
 
 import numpy
 import sys
-from Ex00 import transform_NN_to_NA, get_active_archs
+from Ex00 import transform_NN_to_NA
 from scipy.optimize import linprog
 
 def get_usage(arc_idxs, result_flow, max_capacity):

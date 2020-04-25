@@ -71,7 +71,20 @@ for node in range(cnn_nodes):
 print("\n\n## Results ## \n\n")
 
 path = build_path(precedents, gragh) 
-print("the shorther path is {}".format(path))
+print("\tThe shorther path is {}".format(path))
 
 distance = build_distance(path, distances) 
-print("The minimun cost is {}".format(distance))
+print("\tThe minimun cost is {}".format(distance))
+
+
+"""
+Both solutions found the minimum cost, but there are different procedures.
+The first solution use linear programming with the interior-point method. 
+The solution is a list of arches since the solver uses the node-arch matrix to solve the problem. 
+
+The second solution uses the Dijkstra's algorithm that go over all the graph calculating the distances  to each node. 
+The final solution is a list of nodes that represent the shortest path.
+
+"""
+
+

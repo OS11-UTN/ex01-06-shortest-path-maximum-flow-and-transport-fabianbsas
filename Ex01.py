@@ -9,6 +9,8 @@ import sys
 from Ex00 import transform_NN_to_NA, get_active_archs
 from scipy.optimize import linprog
 
+node_names = ["s", "2", "3", "4", "5", "t"]
+
 matrix = [[0,1,1,0,0,0],
           [0,0,0,1,0,1],
           [0,0,0,0,1,0],
@@ -18,7 +20,7 @@ matrix = [[0,1,1,0,0,0],
 
 matrix_NN = numpy.array(matrix)
 cost_vector = numpy.array([2, 2, 2, 5, 2, 1, 2])
-beq = numpy.array([1,0,0,0,0,-1])
+beq = numpy.array([1, 0, 0, 0, 0, -1])
 
 Aeq, arc_idxs = transform_NN_to_NA(matrix_NN) 
 
@@ -49,9 +51,12 @@ print("\n\n## Results ## \n\n")
 raw_active_archs = result.x 
 active_archs = [ int(value) for index, value in enumerate(raw_active_archs) ]
 
-print("The raw solution is: {} \n".format(active_archs))
+print("\tThe raw solution is:\n {}".format(result))
 
 active_archs = get_active_archs(arc_idxs, active_archs)
-print("The archs that make the shortest path are: {} \n".format(active_archs))
+print("\n\tThe archs that make the shortest path are: {} \n".format(active_archs))
  
-print("The minimun cost is {:.2f} \n".format(result.fun))
+print("\tThe minimun cost is {:.2f} \n".format(result.fun))
+
+
+
